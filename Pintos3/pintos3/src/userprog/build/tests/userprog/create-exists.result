@@ -1,0 +1,22 @@
+FAIL
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (test) begin
+  (test) create quux.dat
+  (test) create warble.dat
+  (test) try to re-create quux.dat
+  (test) create baffle.dat
+  (test) try to re-create quux.dat
+  (test) end
+  create-exists: exit(0)
+Differences in `diff -u' format:
+  (test) begin
+  (test) create quux.dat
+- (test) create warble.dat
+- (test) try to re-create quux.dat
+- (test) create baffle.dat
+- (test) try to re-create quux.dat
+- (test) end
++ system call!
+  create-exists: exit(0)

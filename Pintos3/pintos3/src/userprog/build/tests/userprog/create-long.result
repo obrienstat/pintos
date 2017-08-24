@@ -1,0 +1,14 @@
+FAIL
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (test) begin
+  (test) create("x..."): 0
+  (test) end
+  create-long: exit(0)
+Differences in `diff -u' format:
+  (test) begin
+- (test) create("x..."): 0
+- (test) end
++ system call!
+  create-long: exit(0)

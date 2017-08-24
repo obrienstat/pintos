@@ -1,0 +1,16 @@
+FAIL
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (test) begin
+  (child-simple) run
+  child-simple: exit(81)
+  (test) end
+  exec-once: exit(0)
+Differences in `diff -u' format:
+  (test) begin
+- (child-simple) run
+- child-simple: exit(81)
+- (test) end
++ system call!
+  exec-once: exit(0)

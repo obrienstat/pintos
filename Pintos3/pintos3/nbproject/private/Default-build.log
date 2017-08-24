@@ -1,0 +1,209 @@
+mkdir -p build/devices
+mkdir -p build/filesys
+mkdir -p build/lib
+mkdir -p build/lib/kernel
+mkdir -p build/lib/user
+mkdir -p build/tests/filesys/base
+mkdir -p build/tests/userprog
+mkdir -p build/tests/userprog/no-vm
+mkdir -p build/threads
+mkdir -p build/userprog
+cp ../Makefile.build build/Makefile
+cd build && /bin/make all
+make[1]: Entering directory '/am/rialto/home1/obrienstat/2017/NWEN301/lab3/pintos3/src/userprog/build'
+gcc412 -m32 -E -nostdinc -I../.. -I../../lib -I../../lib/kernel -P ../../threads/kernel.lds.S > threads/kernel.lds.s
+gcc412 -m32 -c ../../threads/start.S -o threads/start.o -Wa,--gstabs -nostdinc -I../.. -I../../lib -I../../lib/kernel -DUSERPROG -DFILESYS -MMD -MF threads/start.d
+gcc412 -m32 -c ../../threads/init.c -o threads/init.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF threads/init.d
+gcc412 -m32 -c ../../threads/thread.c -o threads/thread.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF threads/thread.d
+gcc412 -m32 -c ../../threads/switch.S -o threads/switch.o -Wa,--gstabs -nostdinc -I../.. -I../../lib -I../../lib/kernel -DUSERPROG -DFILESYS -MMD -MF threads/switch.d
+gcc412 -m32 -c ../../threads/interrupt.c -o threads/interrupt.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF threads/interrupt.d
+gcc412 -m32 -c ../../threads/intr-stubs.S -o threads/intr-stubs.o -Wa,--gstabs -nostdinc -I../.. -I../../lib -I../../lib/kernel -DUSERPROG -DFILESYS -MMD -MF threads/intr-stubs.d
+gcc412 -m32 -c ../../threads/synch.c -o threads/synch.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF threads/synch.d
+gcc412 -m32 -c ../../threads/palloc.c -o threads/palloc.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF threads/palloc.d
+gcc412 -m32 -c ../../threads/malloc.c -o threads/malloc.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF threads/malloc.d
+gcc412 -m32 -c ../../devices/pit.c -o devices/pit.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF devices/pit.d
+gcc412 -m32 -c ../../devices/timer.c -o devices/timer.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF devices/timer.d
+gcc412 -m32 -c ../../devices/kbd.c -o devices/kbd.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF devices/kbd.d
+gcc412 -m32 -c ../../devices/vga.c -o devices/vga.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF devices/vga.d
+gcc412 -m32 -c ../../devices/serial.c -o devices/serial.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF devices/serial.d
+gcc412 -m32 -c ../../devices/block.c -o devices/block.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF devices/block.d
+gcc412 -m32 -c ../../devices/partition.c -o devices/partition.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF devices/partition.d
+gcc412 -m32 -c ../../devices/ide.c -o devices/ide.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF devices/ide.d
+gcc412 -m32 -c ../../devices/input.c -o devices/input.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF devices/input.d
+gcc412 -m32 -c ../../devices/intq.c -o devices/intq.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF devices/intq.d
+gcc412 -m32 -c ../../devices/rtc.c -o devices/rtc.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF devices/rtc.d
+gcc412 -m32 -c ../../devices/shutdown.c -o devices/shutdown.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF devices/shutdown.d
+gcc412 -m32 -c ../../devices/speaker.c -o devices/speaker.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF devices/speaker.d
+gcc412 -m32 -c ../../lib/debug.c -o lib/debug.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF lib/debug.d
+gcc412 -m32 -c ../../lib/random.c -o lib/random.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF lib/random.d
+gcc412 -m32 -c ../../lib/stdio.c -o lib/stdio.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF lib/stdio.d
+gcc412 -m32 -c ../../lib/stdlib.c -o lib/stdlib.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF lib/stdlib.d
+gcc412 -m32 -c ../../lib/string.c -o lib/string.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF lib/string.d
+gcc412 -m32 -c ../../lib/arithmetic.c -o lib/arithmetic.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF lib/arithmetic.d
+gcc412 -m32 -c ../../lib/ustar.c -o lib/ustar.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF lib/ustar.d
+gcc412 -m32 -c ../../lib/kernel/debug.c -o lib/kernel/debug.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF lib/kernel/debug.d
+gcc412 -m32 -c ../../lib/kernel/list.c -o lib/kernel/list.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF lib/kernel/list.d
+gcc412 -m32 -c ../../lib/kernel/bitmap.c -o lib/kernel/bitmap.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF lib/kernel/bitmap.d
+gcc412 -m32 -c ../../lib/kernel/hash.c -o lib/kernel/hash.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF lib/kernel/hash.d
+gcc412 -m32 -c ../../lib/kernel/console.c -o lib/kernel/console.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF lib/kernel/console.d
+gcc412 -m32 -c ../../userprog/process.c -o userprog/process.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF userprog/process.d
+../../userprog/process.c: In function ‘release_child’:
+../../userprog/process.c:114: warning: unused parameter ‘cs’
+../../userprog/process.c: In function ‘process_wait’:
+../../userprog/process.c:125: warning: unused parameter ‘child_tid’
+../../userprog/process.c: In function ‘push’:
+../../userprog/process.c:510: warning: unused parameter ‘kpage’
+../../userprog/process.c:510: warning: unused parameter ‘ofs’
+../../userprog/process.c:510: warning: unused parameter ‘buf’
+../../userprog/process.c:510: warning: unused parameter ‘size’
+../../userprog/process.c: In function ‘init_cmd_line’:
+../../userprog/process.c:520: warning: unused parameter ‘kpage’
+../../userprog/process.c:520: warning: unused parameter ‘upage’
+../../userprog/process.c:520: warning: unused parameter ‘cmd_line’
+../../userprog/process.c:521: warning: unused parameter ‘esp’
+../../userprog/process.c: In function ‘setup_stack’:
+../../userprog/process.c:530: warning: unused parameter ‘cmd_line’
+../../userprog/process.c: At top level:
+../../userprog/process.c:115: warning: ‘release_child’ defined but not used
+../../userprog/process.c:511: warning: ‘push’ defined but not used
+../../userprog/process.c:522: warning: ‘init_cmd_line’ defined but not used
+gcc412 -m32 -c ../../userprog/pagedir.c -o userprog/pagedir.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF userprog/pagedir.d
+gcc412 -m32 -c ../../userprog/exception.c -o userprog/exception.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF userprog/exception.d
+gcc412 -m32 -c ../../userprog/syscall.c -o userprog/syscall.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF userprog/syscall.d
+../../userprog/syscall.c: In function ‘copy_in_string’:
+../../userprog/syscall.c:186: warning: pointer targets in passing argument 1 of ‘get_user’ differ in signedness
+../../userprog/syscall.c:186: warning: pointer targets in passing argument 2 of ‘get_user’ differ in signedness
+../../userprog/syscall.c: In function ‘sys_exit’:
+../../userprog/syscall.c:214: warning: unused parameter ‘exit_code’
+../../userprog/syscall.c: In function ‘sys_exec’:
+../../userprog/syscall.c:222: warning: unused parameter ‘ufile’
+../../userprog/syscall.c: In function ‘sys_wait’:
+../../userprog/syscall.c:230: warning: unused parameter ‘child’
+../../userprog/syscall.c: In function ‘sys_create’:
+../../userprog/syscall.c:238: warning: unused parameter ‘ufile’
+../../userprog/syscall.c:238: warning: unused parameter ‘initial_size’
+../../userprog/syscall.c: In function ‘sys_remove’:
+../../userprog/syscall.c:246: warning: unused parameter ‘ufile’
+../../userprog/syscall.c: In function ‘sys_open’:
+../../userprog/syscall.c:262: warning: unused parameter ‘ufile’
+../../userprog/syscall.c: In function ‘sys_filesize’:
+../../userprog/syscall.c:270: warning: unused parameter ‘handle’
+../../userprog/syscall.c: In function ‘sys_write’:
+../../userprog/syscall.c:331: warning: pointer targets in passing argument 1 of ‘putbuf’ differ in signedness
+../../userprog/syscall.c: In function ‘sys_seek’:
+../../userprog/syscall.c:345: warning: unused parameter ‘handle’
+../../userprog/syscall.c:345: warning: unused parameter ‘position’
+../../userprog/syscall.c: In function ‘sys_tell’:
+../../userprog/syscall.c:353: warning: unused parameter ‘handle’
+../../userprog/syscall.c: In function ‘sys_close’:
+../../userprog/syscall.c:361: warning: unused parameter ‘handle’
+../../userprog/syscall.c: At top level:
+../../userprog/syscall.c:175: warning: ‘copy_in_string’ defined but not used
+gcc412 -m32 -c ../../userprog/gdt.c -o userprog/gdt.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF userprog/gdt.d
+gcc412 -m32 -c ../../userprog/tss.c -o userprog/tss.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF userprog/tss.d
+gcc412 -m32 -c ../../filesys/filesys.c -o filesys/filesys.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF filesys/filesys.d
+gcc412 -m32 -c ../../filesys/free-map.c -o filesys/free-map.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF filesys/free-map.d
+gcc412 -m32 -c ../../filesys/file.c -o filesys/file.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF filesys/file.d
+gcc412 -m32 -c ../../filesys/directory.c -o filesys/directory.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF filesys/directory.d
+gcc412 -m32 -c ../../filesys/inode.c -o filesys/inode.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF filesys/inode.d
+gcc412 -m32 -c ../../filesys/fsutil.c -o filesys/fsutil.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers -DUSERPROG -DFILESYS -MMD -MF filesys/fsutil.d
+ld -melf_i386 -T threads/kernel.lds.s -o kernel.o threads/start.o threads/init.o threads/thread.o threads/switch.o threads/interrupt.o threads/intr-stubs.o threads/synch.o threads/palloc.o threads/malloc.o devices/pit.o devices/timer.o devices/kbd.o devices/vga.o devices/serial.o devices/block.o devices/partition.o devices/ide.o devices/input.o devices/intq.o devices/rtc.o devices/shutdown.o devices/speaker.o lib/debug.o lib/random.o lib/stdio.o lib/stdlib.o lib/string.o lib/arithmetic.o lib/ustar.o lib/kernel/debug.o lib/kernel/list.o lib/kernel/bitmap.o lib/kernel/hash.o lib/kernel/console.o userprog/process.o userprog/pagedir.o userprog/exception.o userprog/syscall.o userprog/gdt.o userprog/tss.o filesys/filesys.o filesys/free-map.o filesys/file.o filesys/directory.o filesys/inode.o filesys/fsutil.o
+objcopy -R .note -R .comment -S kernel.o kernel.bin
+gcc412 -m32 -c ../../threads/loader.S -o threads/loader.o -Wa,--gstabs -nostdinc -I../.. -I../../lib 
+ld -melf_i386 -N -e 0 -Ttext 0x7c00 --oformat binary -o loader.bin threads/loader.o
+gcc412 -m32 -c ../../tests/userprog/args-none.c -o tests/userprog/args-none.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/args-none.d
+gcc412 -m32 -c ../../tests/lib.c -o tests/lib.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/lib.d
+gcc412 -m32 -c ../../lib/user/entry.c -o lib/user/entry.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/user/entry.d
+gcc412 -m32 -c ../../lib/user/debug.c -o lib/user/debug.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/user/debug.d
+gcc412 -m32 -c ../../lib/user/syscall.c -o lib/user/syscall.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/user/syscall.d
+gcc412 -m32 -c ../../lib/user/console.c -o lib/user/console.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/user/console.d
+rm -f libc.a
+ar r libc.a lib/debug.o lib/random.o lib/stdio.o lib/stdlib.o lib/string.o lib/arithmetic.o lib/ustar.o lib/user/debug.o lib/user/syscall.o lib/user/console.o
+ar: creating libc.a
+ranlib libc.a
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/args-none.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/args-none
+gcc412 -m32 -c ../../tests/userprog/args.c -o tests/userprog/args.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/args.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/args.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/args-single
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/args.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/args-multiple
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/args.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/args-many
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/args.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/args-dbl-space
+gcc412 -m32 -c ../../tests/userprog/halt.c -o tests/userprog/halt.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/halt.d
+gcc412 -m32 -c ../../tests/main.c -o tests/main.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/main.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/halt.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/halt
+gcc412 -m32 -c ../../tests/userprog/exit.c -o tests/userprog/exit.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/exit.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/exit.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/exit
+gcc412 -m32 -c ../../tests/userprog/create-normal.c -o tests/userprog/create-normal.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/create-normal.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/create-normal.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/create-normal
+gcc412 -m32 -c ../../tests/userprog/create-empty.c -o tests/userprog/create-empty.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/create-empty.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/create-empty.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/create-empty
+gcc412 -m32 -c ../../tests/userprog/create-long.c -o tests/userprog/create-long.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/create-long.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/create-long.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/create-long
+gcc412 -m32 -c ../../tests/userprog/create-exists.c -o tests/userprog/create-exists.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/create-exists.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/create-exists.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/create-exists
+gcc412 -m32 -c ../../tests/userprog/open-normal.c -o tests/userprog/open-normal.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/open-normal.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/open-normal.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/open-normal
+gcc412 -m32 -c ../../tests/userprog/open-missing.c -o tests/userprog/open-missing.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/open-missing.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/open-missing.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/open-missing
+gcc412 -m32 -c ../../tests/userprog/open-twice.c -o tests/userprog/open-twice.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/open-twice.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/open-twice.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/open-twice
+gcc412 -m32 -c ../../tests/userprog/close-normal.c -o tests/userprog/close-normal.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/close-normal.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/close-normal.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/close-normal
+gcc412 -m32 -c ../../tests/userprog/read-normal.c -o tests/userprog/read-normal.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/read-normal.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/read-normal.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/read-normal
+gcc412 -m32 -c ../../tests/userprog/read-zero.c -o tests/userprog/read-zero.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/read-zero.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/read-zero.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/read-zero
+gcc412 -m32 -c ../../tests/userprog/write-normal.c -o tests/userprog/write-normal.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/write-normal.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/write-normal.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/write-normal
+gcc412 -m32 -c ../../tests/userprog/write-zero.c -o tests/userprog/write-zero.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/write-zero.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/write-zero.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/write-zero
+gcc412 -m32 -c ../../tests/userprog/exec-once.c -o tests/userprog/exec-once.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/exec-once.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/exec-once.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/exec-once
+gcc412 -m32 -c ../../tests/userprog/exec-multiple.c -o tests/userprog/exec-multiple.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/exec-multiple.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/exec-multiple.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/exec-multiple
+gcc412 -m32 -c ../../tests/userprog/wait-simple.c -o tests/userprog/wait-simple.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/wait-simple.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/wait-simple.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/wait-simple
+gcc412 -m32 -c ../../tests/userprog/wait-twice.c -o tests/userprog/wait-twice.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/wait-twice.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/wait-twice.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/wait-twice
+gcc412 -m32 -c ../../tests/userprog/child-simple.c -o tests/userprog/child-simple.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/child-simple.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/child-simple.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/child-simple
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/args.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/child-args
+gcc412 -m32 -c ../../tests/userprog/child-bad.c -o tests/userprog/child-bad.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/child-bad.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/child-bad.o tests/main.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/child-bad
+gcc412 -m32 -c ../../tests/userprog/child-close.c -o tests/userprog/child-close.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/child-close.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/child-close.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/child-close
+gcc412 -m32 -c ../../tests/userprog/child-rox.c -o tests/userprog/child-rox.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/child-rox.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/child-rox.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/child-rox
+gcc412 -m32 -c ../../tests/userprog/no-vm/multi-oom.c -o tests/userprog/no-vm/multi-oom.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/userprog/no-vm/multi-oom.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/userprog/no-vm/multi-oom.o tests/lib.o lib/user/entry.o libc.a -o tests/userprog/no-vm/multi-oom
+gcc412 -m32 -c ../../tests/filesys/base/lg-create.c -o tests/filesys/base/lg-create.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/lg-create.d
+gcc412 -m32 -c ../../tests/filesys/seq-test.c -o tests/filesys/seq-test.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/seq-test.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/lg-create.o tests/lib.o tests/filesys/seq-test.o tests/main.o lib/user/entry.o libc.a -o tests/filesys/base/lg-create
+gcc412 -m32 -c ../../tests/filesys/base/lg-full.c -o tests/filesys/base/lg-full.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/lg-full.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/lg-full.o tests/lib.o tests/filesys/seq-test.o tests/main.o lib/user/entry.o libc.a -o tests/filesys/base/lg-full
+gcc412 -m32 -c ../../tests/filesys/base/lg-random.c -o tests/filesys/base/lg-random.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/lg-random.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/lg-random.o tests/lib.o tests/filesys/seq-test.o tests/main.o lib/user/entry.o libc.a -o tests/filesys/base/lg-random
+gcc412 -m32 -c ../../tests/filesys/base/lg-seq-block.c -o tests/filesys/base/lg-seq-block.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/lg-seq-block.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/lg-seq-block.o tests/lib.o tests/filesys/seq-test.o tests/main.o lib/user/entry.o libc.a -o tests/filesys/base/lg-seq-block
+gcc412 -m32 -c ../../tests/filesys/base/lg-seq-random.c -o tests/filesys/base/lg-seq-random.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/lg-seq-random.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/lg-seq-random.o tests/lib.o tests/filesys/seq-test.o tests/main.o lib/user/entry.o libc.a -o tests/filesys/base/lg-seq-random
+gcc412 -m32 -c ../../tests/filesys/base/sm-create.c -o tests/filesys/base/sm-create.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/sm-create.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/sm-create.o tests/lib.o tests/filesys/seq-test.o tests/main.o lib/user/entry.o libc.a -o tests/filesys/base/sm-create
+gcc412 -m32 -c ../../tests/filesys/base/sm-full.c -o tests/filesys/base/sm-full.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/sm-full.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/sm-full.o tests/lib.o tests/filesys/seq-test.o tests/main.o lib/user/entry.o libc.a -o tests/filesys/base/sm-full
+gcc412 -m32 -c ../../tests/filesys/base/sm-random.c -o tests/filesys/base/sm-random.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/sm-random.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/sm-random.o tests/lib.o tests/filesys/seq-test.o tests/main.o lib/user/entry.o libc.a -o tests/filesys/base/sm-random
+gcc412 -m32 -c ../../tests/filesys/base/sm-seq-block.c -o tests/filesys/base/sm-seq-block.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/sm-seq-block.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/sm-seq-block.o tests/lib.o tests/filesys/seq-test.o tests/main.o lib/user/entry.o libc.a -o tests/filesys/base/sm-seq-block
+gcc412 -m32 -c ../../tests/filesys/base/sm-seq-random.c -o tests/filesys/base/sm-seq-random.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/sm-seq-random.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/sm-seq-random.o tests/lib.o tests/filesys/seq-test.o tests/main.o lib/user/entry.o libc.a -o tests/filesys/base/sm-seq-random
+gcc412 -m32 -c ../../tests/filesys/base/syn-read.c -o tests/filesys/base/syn-read.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/syn-read.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/syn-read.o tests/lib.o tests/filesys/seq-test.o tests/main.o lib/user/entry.o libc.a -o tests/filesys/base/syn-read
+gcc412 -m32 -c ../../tests/filesys/base/syn-remove.c -o tests/filesys/base/syn-remove.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/syn-remove.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/syn-remove.o tests/lib.o tests/filesys/seq-test.o tests/main.o lib/user/entry.o libc.a -o tests/filesys/base/syn-remove
+gcc412 -m32 -c ../../tests/filesys/base/syn-write.c -o tests/filesys/base/syn-write.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/syn-write.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/syn-write.o tests/lib.o tests/filesys/seq-test.o tests/main.o lib/user/entry.o libc.a -o tests/filesys/base/syn-write
+gcc412 -m32 -c ../../tests/filesys/base/child-syn-read.c -o tests/filesys/base/child-syn-read.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/child-syn-read.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/child-syn-read.o tests/lib.o tests/filesys/seq-test.o lib/user/entry.o libc.a -o tests/filesys/base/child-syn-read
+gcc412 -m32 -c ../../tests/filesys/base/child-syn-wrt.c -o tests/filesys/base/child-syn-wrt.o -g -msoft-float -O -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/user -I. -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/filesys/base/child-syn-wrt.d
+gcc412 -m32  -Wl,--build-id=none -nostdlib -static -Wl,-T,../../lib/user/user.lds tests/filesys/base/child-syn-wrt.o tests/lib.o tests/filesys/seq-test.o lib/user/entry.o libc.a -o tests/filesys/base/child-syn-wrt
+make[1]: Leaving directory '/am/rialto/home1/obrienstat/2017/NWEN301/lab3/pintos3/src/userprog/build'

@@ -1,0 +1,12 @@
+FAIL
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (test) begin
+  (test) end
+  open-missing: exit(0)
+Differences in `diff -u' format:
+  (test) begin
+- (test) end
++ system call!
+  open-missing: exit(0)

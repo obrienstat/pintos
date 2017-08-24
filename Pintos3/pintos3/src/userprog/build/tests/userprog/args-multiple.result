@@ -1,0 +1,34 @@
+FAIL
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (args) begin
+  (args) argc = 5
+  (args) argv[0] = 'args-multiple'
+  (args) argv[1] = 'some'
+  (args) argv[2] = 'arguments'
+  (args) argv[3] = 'for'
+  (args) argv[4] = 'you!'
+  (args) argv[5] = null
+  (args) end
+  args-multiple: exit(0)
+Differences in `diff -u' format:
+  (args) begin
+- (args) argc = 5
+- (args) argv[0] = 'args-multiple'
+- (args) argv[1] = 'some'
+- (args) argv[2] = 'arguments'
+- (args) argv[3] = 'for'
+- (args) argv[4] = 'you!'
+- (args) argv[5] = null
+- (args) end
+- args-multiple: exit(0)
++ (args) argc = 0
++ Page fault at 0: not present error reading page in user context.
++ args-multiple s: dying due to interrupt 0x0e (#PF Page-Fault Exception).
++ Interrupt 0x0e (#PF Page-Fault Exception) at eip=0x80480e8
++  cr2=00000000 error=00000004
++  eax=00000010 ebx=00000000 ecx=0804bc20 edx=00000010
++  esi=00000000 edi=00000000 esp=bfffffb0 ebp=bfffffd8
++  cs=001b ds=0023 es=0023 ss=0023
++ args-multiple s: exit(0)

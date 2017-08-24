@@ -1,0 +1,22 @@
+qemu -hda /tmp/Qt7ayLBL3g.dsk -m 4 -net none -nographic -monitor null
+PiLo hda1
+Loading........
+Kernel command line: -q run priority-donate-twolevel
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  210,534,400 loops/s.
+Boot complete.
+Executing 'priority-donate-twolevel':
+(priority-donate-twolevel) begin
+(priority-donate-twolevel) Thread D finished.
+(priority-donate-twolevel) Thread C finished.
+(priority-donate-twolevel) Thread B finished.
+(priority-donate-twolevel) Thread A finished.
+(priority-donate-twolevel) end
+Execution of 'priority-donate-twolevel' complete.
+Timer: 52 ticks
+Thread: 0 idle ticks, 52 kernel ticks, 0 user ticks
+Console: 621 characters output
+Keyboard: 0 keys pressed
+Powering off...

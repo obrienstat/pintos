@@ -1,0 +1,18 @@
+FAIL
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (priority-donate-twolevel) begin
+  (priority-donate-twolevel) Thread C finished.
+  (priority-donate-twolevel) Thread D finished.
+  (priority-donate-twolevel) Thread B finished.
+  (priority-donate-twolevel) Thread A finished.
+  (priority-donate-twolevel) end
+Differences in `diff -u' format:
+  (priority-donate-twolevel) begin
+- (priority-donate-twolevel) Thread C finished.
+  (priority-donate-twolevel) Thread D finished.
++ (priority-donate-twolevel) Thread C finished.
+  (priority-donate-twolevel) Thread B finished.
+  (priority-donate-twolevel) Thread A finished.
+  (priority-donate-twolevel) end

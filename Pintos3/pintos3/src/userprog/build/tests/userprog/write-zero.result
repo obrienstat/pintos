@@ -1,0 +1,14 @@
+FAIL
+Test output failed to match any acceptable form.
+
+Acceptable output:
+  (test) begin
+  (test) open "sample.txt"
+  (test) end
+  write-zero: exit(0)
+Differences in `diff -u' format:
+  (test) begin
+  (test) open "sample.txt"
+- (test) end
++ system call!
+  write-zero: exit(0)

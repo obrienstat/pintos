@@ -1,0 +1,16 @@
+FAIL tests/threads/priority-donate-twolevel
+FAIL tests/threads/priority-donate-single
+FAIL tests/threads/priority-donate-chain
+FAIL tests/threads/priority-donate-chain
+FAIL tests/threads/priority-donate-nest
+FAIL tests/threads/priority-donate-sema
+FAIL tests/threads/priority-donate-multiple2
+FAIL tests/threads/priority-donate-multiple
+FAIL tests/threads/priority-donate-lower
+pass tests/threads/priority-donate-one
+pass tests/threads/priority-condvar
+pass tests/threads/priority-sema
+pass tests/threads/priority-fifo
+pass tests/threads/priority-preempt
+pass tests/threads/priority-change
+pass tests/threads/alarm-priority
